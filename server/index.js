@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 app.get("/", (req, res) => {
-  res.send("Hello from server");
+  res.send("Hello from Rag server");
 });
 
 app.post("/upload/pdf", upload.single("pdf"), async (req, res) => {
