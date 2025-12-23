@@ -2,6 +2,7 @@ import { Worker } from "bullmq";
 import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { OllamaEmbeddings } from "@langchain/ollama";
 import { QdrantVectorStore } from "@langchain/qdrant";
+import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
 const worker = new Worker(
   "ProcessPdfQueue",
@@ -21,7 +22,17 @@ Store embeddings in vector database
     const loader = new PDFLoader(data.path);
     // console.log("Loading PDF from path....");
     const docs = await loader.load();
-    // console.log("Loaded documents:", docs);
+    // console.log("Loaded documents:", docs[0].pageContent);
+
+    //Chunking
+    const splitter = new RecursiveCharacterTextSplitter({
+      chunkSize: 100,
+      chunkOverlap: 0,
+    });
+
+    // 3️⃣ Chunk documents (CORRECT API)
+    const chunks = await splitter.splitDocuments(docs);
+    console.log(`Chunks created: ${chunks.length}`);
 
     //Generate Embeddings
     const embeddings = new OllamaEmbeddings({

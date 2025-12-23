@@ -17,6 +17,7 @@
     "@langchain/ollama": "^1.1.0",
     "@langchain/openai": "^1.2.0",
     "@langchain/qdrant": "^1.0.1",
+    "@langchain/textsplitters": "^1.0.1",
     "bullmq": "^5.66.1",
     "cors": "^2.8.5",
     "express": "~4.22.1",

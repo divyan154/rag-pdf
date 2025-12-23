@@ -23,6 +23,9 @@ importers:
       '@langchain/qdrant':
         specifier: ^1.0.1
         version: 1.0.1(@langchain/core@1.1.7(openai@6.15.0(ws@8.18.3)(zod@4.2.1)))(typescript@5.9.3)
+      '@langchain/textsplitters':
+        specifier: ^1.0.1
+        version: 1.0.1(@langchain/core@1.1.7(openai@6.15.0(ws@8.18.3)(zod@4.2.1)))
       bullmq:
         specifier: ^5.66.1
         version: 5.66.2

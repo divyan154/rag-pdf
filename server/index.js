@@ -33,6 +33,27 @@ app.post("/upload/pdf", upload.single("pdf"), async (req, res) => {
   res.send({ message: "File uploaded successfully", file: req.file });
 });
 
+app.post("/chat", async (req, res) => {
+  const userQuery = "What is Chunking Strategy?";
+  const embeddings = new OllamaEmbeddings({
+    model: "nomic-embed-text",
+    baseUrl: "http://localhost:11434",
+  });
+  const vectorStore = await QdrantVectorStore.fromExistingCollection(
+    embeddings,
+    {
+      url: "http://localhost:6333",
+      collectionName: "langchainjs-testing",
+    }
+  );
+  const retriever = vectorStore.asRetriever({
+    k: 2,
+  });
+  const result = await retriever.invoke(userQuery);
+  console.log("Retrieved results:", result);
+  res.send({ answer: "This is a placeholder answer" });
+});
+
 const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
