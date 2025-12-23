@@ -1,0 +1,59 @@
+{
+  "answer": "This is a placeholder answer",
+  "sources": [
+    {
+      "pageContent": "College of Design and Innovation, Tongji University",
+      "metadata": {
+        "source": "uploads/1766501209824-2312.10997v5.pdf",
+        "pdf": {
+          "version": "1.10.100",
+          "info": {
+            "PDFFormatVersion": "1.5",
+            "IsAcroFormPresent": false,
+            "IsXFAPresent": false,
+            "Title": "",
+            "Author": "",
+            "Subject": "",
+            "Keywords": "",
+            "Creator": "LaTeX with hyperref",
+            "Producer": "pdfTeX-1.40.25",
+            "CreationDate": "D:20240328005445Z",
+            "ModDate": "D:20240328005445Z",
+            "Trapped": { "name": "False" }
+          },
+          "metadata": null,
+          "totalPages": 21
+        },
+        "loc": { "pageNumber": 1, "lines": { "from": 30, "to": 30 } }
+      },
+      "id": "3fcefc46-af44-47fc-b3c9-44bb2e13d182"
+    },
+    {
+      "pageContent": "The  development  of  Advanced  RAG  and  Modular  RAG  is",
+      "metadata": {
+        "source": "uploads/1766501209824-2312.10997v5.pdf",
+        "pdf": {
+          "version": "1.10.100",
+          "info": {
+            "PDFFormatVersion": "1.5",
+            "IsAcroFormPresent": false,
+            "IsXFAPresent": false,
+            "Title": "",
+            "Author": "",
+            "Subject": "",
+            "Keywords": "",
+            "Creator": "LaTeX with hyperref",
+            "Producer": "pdfTeX-1.40.25",
+            "CreationDate": "D:20240328005445Z",
+            "ModDate": "D:20240328005445Z",
+            "Trapped": { "name": "False" }
+          },
+          "metadata": null,
+          "totalPages": 21
+        },
+        "loc": { "pageNumber": 2, "lines": { "from": 49, "to": 49 } }
+      },
+      "id": "28faf89e-2123-48e9-b607-c6d02b4e0700"
+    }
+  ]
+}
