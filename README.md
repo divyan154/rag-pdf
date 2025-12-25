@@ -36,7 +36,6 @@ A full-stack Retrieval-Augmented Generation (RAG) application that enables intel
   - Qdrant integration for vector storage
 - **Qdrant** - Vector similarity search database
 - **Ollama** - Local LLM support
-- **OpenAI** - Cloud LLM integration
 
 ### Infrastructure
 - **Valkey** (Redis-compatible) - Message broker
