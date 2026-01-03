@@ -1,5 +1,5 @@
 import express from "express";
-
+import ollama from "ollama";
 import multer from "multer";
 import cors from "cors";
 import { Queue } from "bullmq";
@@ -57,6 +57,11 @@ app.post("/chat", async (req, res) => {
 
     console.log("Retrieved results:", result);
 
+    const response = await ollama.chat({
+      model: "llama3.1:latest",
+      messages: [{ role: "user", content: "Why is the sky blue?" }],
+    });
+    console.log(response.message.content);
     res.status(200).json({
       answer: "This is a placeholder answer",
       sources: result,
