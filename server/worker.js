@@ -31,8 +31,8 @@ Store embeddings in vector database
 
     //Chunking
     const splitter = new RecursiveCharacterTextSplitter({
-      chunkSize: 100,
-      chunkOverlap: 0,
+      chunkSize: 800,
+      chunkOverlap: 300,
     });
 
     // 3️⃣ Chunk documents (CORRECT API)

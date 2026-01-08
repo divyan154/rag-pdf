@@ -7,6 +7,9 @@ import { OllamaEmbeddings } from "@langchain/ollama";
 import { QdrantVectorStore } from "@langchain/qdrant";
 
 const app = express();
+
+app.use(express.json());
+
 const queue = new Queue("ProcessPdfQueue", {
   connection: { host: "localhost", port: 6379 },
 });
@@ -37,8 +40,8 @@ app.post("/upload/pdf", upload.single("pdf"), async (req, res) => {
 
 app.post("/chat", async (req, res) => {
   try {
-    const userQuery = "What is Chunking Strategy?";
-
+    console.log("Received /chat request with body:", req.body);
+    const userQuery = req.body.question;
     const embeddings = new OllamaEmbeddings({
       model: "nomic-embed-text",
       baseUrl: "http://localhost:11434",
@@ -52,18 +55,40 @@ app.post("/chat", async (req, res) => {
       }
     );
 
-    const retriever = vectorStore.asRetriever({ k: 2 });
+    const retriever = vectorStore.asRetriever({ k: 3 });
     const result = await retriever.invoke(userQuery);
 
     console.log("Retrieved results:", result);
 
+    const contextText = result.map((r) => r.pageContent).join("\n\n---\n\n");
+
+    console.log("📚 CONTEXT SENT TO LLM:\n", contextText);
+
+    const prompt = `
+Answer the question using ONLY the context below.
+If the answer is not present in the context, reply exactly: I don't know.
+
+Context:
+${contextText}
+
+Question:
+${userQuery}
+
+Answer:
+`;
+
     const response = await ollama.chat({
       model: "llama3.1:latest",
-      messages: [{ role: "user", content: "Why is the sky blue?" }],
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
     });
     console.log(response.message.content);
     res.status(200).json({
-      answer: "This is a placeholder answer",
+      answer: response.message.content,
       sources: result,
     });
   } catch (err) {

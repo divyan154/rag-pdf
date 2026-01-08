@@ -1,59 +1,119 @@
 {
-  "answer": "This is a placeholder answer",
+  "answer": "The query string comes after ? in the URL. The key/value pair is separated by =. For example, http://localhost:3000/weather?address=boston uses the query string to set address equal to boston.\n\nIf multiple key/value pairs are needed, they can be separated by &. For example, http://localhost:3000/weather?address=philadelphia&units=us sets up two key/value pairs where address equals philadelphia and units equals us.\n\nThe Express route handler can access the query string key/value pairs on req.query. The handler below uses req.query.address to get the value provided for address.\n```javascript\napp.get('/weather', (req, res) => { \n    // All query string key/value pairs are on req.query\n}\n```\nThis will be used to send the address from the browser to Node.js. Node.js will then be able to fetch the weather for the address and send the forecast back to the browser.\n\nThe query string is a portion of the URL that allows you to provide additional information to the server. For the weather application, the query string will be used to pass the address from the browser to the Node.js Express application.",
   "sources": [
     {
-      "pageContent": "College of Design and Innovation, Tongji University",
+      "pageContent": "Version 1.0 \n48 \nThe query string comes after ? in the URL. The example URL below uses the query string \nto set address equal to boston. The key/value pair is separated by =. \nhttp://localhost:3000/weather?address=boston \nBelow is one more example where two key/value pairs are set up. The key/value pairs are \nseparated by &. address equals philadelphia and units equals us. \nhttp://localhost:3000/weather?address=philadelphia&units=us \nThe Express route handler can access the query string key/value pairs on req.query. The \nhandler below uses req.query.address to get the value provided for address. This \naddress can then be used to fetch the weather information. \napp.get('/weather', (req, res) => { \n    // All query string key/value pairs are on req.query",
       "metadata": {
-        "source": "uploads/1766501209824-2312.10997v5.pdf",
+        "source": "uploads/1767830055822-PDF-Guide-Node-Andrew-Mead-v3.pdf",
         "pdf": {
           "version": "1.10.100",
           "info": {
-            "PDFFormatVersion": "1.5",
+            "PDFFormatVersion": "1.4",
             "IsAcroFormPresent": false,
             "IsXFAPresent": false,
-            "Title": "",
-            "Author": "",
-            "Subject": "",
-            "Keywords": "",
-            "Creator": "LaTeX with hyperref",
-            "Producer": "pdfTeX-1.40.25",
-            "CreationDate": "D:20240328005445Z",
-            "ModDate": "D:20240328005445Z",
-            "Trapped": { "name": "False" }
+            "Author": "Andrew Mead",
+            "Creator": "Acrobat PDFMaker 17 for Word",
+            "Producer": "macOS Version 10.14.1 (Build 18B75) Quartz PDFContext",
+            "CreationDate": "D:20190227140340Z00'00'",
+            "ModDate": "D:20190227140340Z00'00'"
           },
-          "metadata": null,
-          "totalPages": 21
+          "metadata": {
+            "_metadata": {
+              "dc:title": "",
+              "dc:creator": "Andrew Mead",
+              "dc:format": "application/pdf",
+              "xmp:metadatadate": "2019-02-27T07:58:36-05:00",
+              "xmp:createdate": "2019-02-27T07:57:47-05:00",
+              "xmp:modifydate": "2019-02-27T07:58:36-05:00",
+              "xmp:creatortool": "Acrobat PDFMaker 17 for Word",
+              "xmpmm:instanceid": "uuid:0191c00c-49b9-49fb-9cbc-3b4ccd09a8c2",
+              "xmpmm:subject": "5",
+              "xmpmm:documentid": "uuid:4bb5f6bf-b819-4d4f-a1a6-dd253fa85f74",
+              "pdfx:sourcemodified": "D:20190227125732",
+              "pdf:producer": "Adobe PDF Library 15.0"
+            }
+          },
+          "totalPages": 125
         },
-        "loc": { "pageNumber": 1, "lines": { "from": 30, "to": 30 } }
+        "loc": { "pageNumber": 48, "lines": { "from": 1, "to": 13 } }
       },
-      "id": "3fcefc46-af44-47fc-b3c9-44bb2e13d182"
+      "id": "3b6fdfe3-ebc7-4599-b8d7-32f6684ba6f7"
     },
     {
-      "pageContent": "The  development  of  Advanced  RAG  and  Modular  RAG  is",
+      "pageContent": "server. This will be used to send the address from the browser to Node.js. Node.js will \nthen be able to fetch the weather for the address and send the forecast back to the \nbrowser. \nWorking with Query Strings \nThe query string is a portion of the URL that allows you to provide additional information to \nthe server. For the weather application, the query string will be used to pass the address \nfrom the browser to the Node.js Express application.",
       "metadata": {
-        "source": "uploads/1766501209824-2312.10997v5.pdf",
+        "source": "uploads/1767830055822-PDF-Guide-Node-Andrew-Mead-v3.pdf",
         "pdf": {
           "version": "1.10.100",
           "info": {
-            "PDFFormatVersion": "1.5",
+            "PDFFormatVersion": "1.4",
             "IsAcroFormPresent": false,
             "IsXFAPresent": false,
-            "Title": "",
-            "Author": "",
-            "Subject": "",
-            "Keywords": "",
-            "Creator": "LaTeX with hyperref",
-            "Producer": "pdfTeX-1.40.25",
-            "CreationDate": "D:20240328005445Z",
-            "ModDate": "D:20240328005445Z",
-            "Trapped": { "name": "False" }
+            "Author": "Andrew Mead",
+            "Creator": "Acrobat PDFMaker 17 for Word",
+            "Producer": "macOS Version 10.14.1 (Build 18B75) Quartz PDFContext",
+            "CreationDate": "D:20190227140340Z00'00'",
+            "ModDate": "D:20190227140340Z00'00'"
           },
-          "metadata": null,
-          "totalPages": 21
+          "metadata": {
+            "_metadata": {
+              "dc:title": "",
+              "dc:creator": "Andrew Mead",
+              "dc:format": "application/pdf",
+              "xmp:metadatadate": "2019-02-27T07:58:36-05:00",
+              "xmp:createdate": "2019-02-27T07:57:47-05:00",
+              "xmp:modifydate": "2019-02-27T07:58:36-05:00",
+              "xmp:creatortool": "Acrobat PDFMaker 17 for Word",
+              "xmpmm:instanceid": "uuid:0191c00c-49b9-49fb-9cbc-3b4ccd09a8c2",
+              "xmpmm:subject": "5",
+              "xmpmm:documentid": "uuid:4bb5f6bf-b819-4d4f-a1a6-dd253fa85f74",
+              "pdfx:sourcemodified": "D:20190227125732",
+              "pdf:producer": "Adobe PDF Library 15.0"
+            }
+          },
+          "totalPages": 125
         },
-        "loc": { "pageNumber": 2, "lines": { "from": 49, "to": 49 } }
+        "loc": { "pageNumber": 47, "lines": { "from": 23, "to": 29 } }
       },
-      "id": "28faf89e-2123-48e9-b607-c6d02b4e0700"
+      "id": "d89e8ddd-5245-4c74-9269-707dd9dda254"
+    },
+    {
+      "pageContent": "Version 1.0 \n19 \nWorking with JSON \nSince JSON is nothing more than a string, it can be used to store data in a text file or \ntransfer data via an HTTP requests between two machines. \nJavaScript provides two methods for working with JSON. The first is JSON.stringify and \nthe second is JSON.parse. JSON.stringify converts a JavaScript object into a JSON \nstring, while JSON.parse converts a JSON string into a JavaScript object. \nconst book = { \n  title: 'Ego is the Enemy', \n  author: 'Ryan Holiday' \n} \n \n// Covert JavaScript object into JSON string \nconst bookJSON = JSON.stringify(book) \n \n// Covert JSON string into object \nconst bookObject = JSON.parse(bookJSON) \nconsole.log(bookObject.title) // Print: Ego is the Enemy",
+      "metadata": {
+        "source": "uploads/1767830055822-PDF-Guide-Node-Andrew-Mead-v3.pdf",
+        "pdf": {
+          "version": "1.10.100",
+          "info": {
+            "PDFFormatVersion": "1.4",
+            "IsAcroFormPresent": false,
+            "IsXFAPresent": false,
+            "Author": "Andrew Mead",
+            "Creator": "Acrobat PDFMaker 17 for Word",
+            "Producer": "macOS Version 10.14.1 (Build 18B75) Quartz PDFContext",
+            "CreationDate": "D:20190227140340Z00'00'",
+            "ModDate": "D:20190227140340Z00'00'"
+          },
+          "metadata": {
+            "_metadata": {
+              "dc:title": "",
+              "dc:creator": "Andrew Mead",
+              "dc:format": "application/pdf",
+              "xmp:metadatadate": "2019-02-27T07:58:36-05:00",
+              "xmp:createdate": "2019-02-27T07:57:47-05:00",
+              "xmp:modifydate": "2019-02-27T07:58:36-05:00",
+              "xmp:creatortool": "Acrobat PDFMaker 17 for Word",
+              "xmpmm:instanceid": "uuid:0191c00c-49b9-49fb-9cbc-3b4ccd09a8c2",
+              "xmpmm:subject": "5",
+              "xmpmm:documentid": "uuid:4bb5f6bf-b819-4d4f-a1a6-dd253fa85f74",
+              "pdfx:sourcemodified": "D:20190227125732",
+              "pdf:producer": "Adobe PDF Library 15.0"
+            }
+          },
+          "totalPages": 125
+        },
+        "loc": { "pageNumber": 19, "lines": { "from": 1, "to": 19 } }
+      },
+      "id": "7792ec66-eee2-4568-8827-653945a8c571"
     }
   ]
 }
