@@ -1,4 +1,4 @@
-# RAG PDF Chat Application
+# Smart Ai Car Assistant
 
 A full-stack Retrieval-Augmented Generation (RAG) application that enables intelligent conversations with PDF documents using vector similarity search and large language models.
 
