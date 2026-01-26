@@ -1,6 +1,6 @@
 # Smart Ai Car Assistant
 
-A full-stack Retrieval-Augmented Generation (RAG) application that enables intelligent conversations with PDF documents using vector similarity search and large language models.
+A full-stack Retrieval-Augmented Generation (RAG) application that enables intelligent conversations with PDF documents using vector similarity search and large language models. Currently Rag is completed, Now voice input feature is to be added. Also Detecting driver drowsiness using computer vision to alert when EAR(Eye Aspect Ratio) drops below threshold.
 
 ## Features
 
