@@ -72,12 +72,6 @@ A full-stack Retrieval-Augmented Generation (RAG) application that enables intel
                      │ Vector Store│
                      └─────────────┘
 ```
-## Future Implementation
-
-- Voice Input Feature
-- Making it a smart car assisstant which can detect users drowsiness 
-- Computer vision to detect user EAR (EAR < t then alert user tell to rest)
-
 
 ## Prerequisites
 
