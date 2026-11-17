@@ -1,4 +1,4 @@
-# RAG PDF Chat
+# Chat with Pdf Application
 
 Chat with your own PDFs. Each user only searches their own documents.
 
