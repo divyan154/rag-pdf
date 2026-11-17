@@ -3,6 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
+import { useAuth } from "@clerk/nextjs";
 
 interface IMessage {
   role: "user" | "assistant";
@@ -10,6 +11,7 @@ interface IMessage {
 }
 
 export default function Chat() {
+  const { getToken } = useAuth();
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<IMessage[]>([]);
   const [loading, setLoading] = useState(false);
@@ -29,14 +31,18 @@ export default function Chat() {
     const userMessage: IMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
     setLoading(true);
-
+    await new Promise((r) => setTimeout(r, 10));
     const question = input;
     setInput("");
 
     try {
+      const token = await getToken();
       const res = await fetch("http://localhost:8000/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({ question }),
       });
 
@@ -60,6 +66,7 @@ export default function Chat() {
 
   return (
     <div className="flex flex-col h-full p-4">
+      <h1>Chat Assistant</h1>
       {/* Messages */}
       <div className="flex-1 overflow-y-auto space-y-4 pb-4">
         {messages.length === 0 && (

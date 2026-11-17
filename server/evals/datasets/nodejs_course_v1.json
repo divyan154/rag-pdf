@@ -1,0 +1,75 @@
+{
+  "dataset_id": "nodejs_course_v1",
+  "document_id": "nodejs_dev_course_andrew_mead_v3",
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "What is the purpose of the Node.js fs module, and how is it used to write content to a file?",
+      "expected_answer": "The fs module provides functions for manipulating the file system. It can be imported using require('fs'), and writeFileSync() can be used to write content to a file.",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 10,
+          "text": "The script above uses require to load in the fs module. This is a built-in Node.js module that provides functions you can use to manipulate the file system. The script uses writeFileSync to write a message to notes.txt."
+        }
+      ]
+    },
+    {
+      "id": "Q002",
+      "question": "What is npm?",
+      "expected_answer": "npm is NodeJs's package manager that allows to install third party libraries",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 12,
+          "text": "npm is a package manager that allows you to install and use third-party npm libraries in your code."
+        }
+      ]
+    },
+    {
+      "id": "Q003",
+      "question": "What three important things happen when an npm module is installed using npm install?",
+      "expected_answer": "npm creates a node_modules directory, adds the module as a dependency in package.json, and creates a package-lock.json file containing detailed information about installed modules.",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 13,
+          "text":  "First, it creates a node_modules directory. npm uses this directory to store all the code for the npm modules you have installed. Second, npm adds the module as a dependency by listing it in the dependencies property in package.json. This allows you to track and manage the module you have installed. Third, npm creates a package-lock.json file. This includes detailed in"
+        }
+      ]
+    },
+    {
+      "id": "Q004",
+      "question": "What is setTimeout function and how does it work?",
+      "expected_answer": "settimeout is a function that allows to run code at some later time. it takes two arguments first is callback fuction and another is waitingTIme",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 26,
+          "text": "setTimeout is a function that allows you to run some code after a specific amount of time has passed. setTimeout accepts two arguments. The first is a callback function. This function will run after the specified amount of time has passed. The second argument is the amount of time in milliseconds to wait."
+        }
+      ]
+    },
+    {
+      "id": "Q005",
+      "question": "How does object destructring works? ",
+      "expected_answer": "Define title and body inside the command's builder configuration. Set demandOption to true and type to 'string' for each option.",
+      "category": "procedural",
+      "answerable": true,
+      "evidence": [
+        {"page_number":35,
+        "text":"The second ES6 feature is object destructuring. Object destructuring gives you a syntax for pulling properties off of objects and into standalone variables. This is useful when working with the same object properties throughout your code. "
+    },
+        {
+          "page_number": 36,
+          "text": "const user = { name: 'andrew', age: 27, location: 'philadelphia' } // the line below uses destructuring const { age, location:address } = user console.log(age) console.log(address)"
+        }
+      ]
+    }
+  
+  ]
+}

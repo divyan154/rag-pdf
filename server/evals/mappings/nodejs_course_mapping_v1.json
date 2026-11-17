@@ -1,0 +1,99 @@
+[
+  {
+    "questionId": "Q001",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 10,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "6683a58d-30c2-4f0e-bf4b-13aa348d4155",
+            "pageNumber": 10,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q002",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 12,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "9060ba2b-4b6d-4ae2-b47c-90be572d09c5",
+            "pageNumber": 12,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q003",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 13,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "e3c1663e-af3e-4101-bfd3-b0bc154b0f51",
+            "pageNumber": 13,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q004",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 26,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "ca5e4766-6eb0-4739-96b3-12bc065adea5",
+            "pageNumber": 26,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q005",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 35,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "7b7025b4-5a05-4344-81b5-448683ae7d40",
+            "pageNumber": 35,
+            "matchType": "exact"
+          }
+        ]
+      },
+      {
+        "evidenceIndex": 1,
+        "page": 36,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "757cbb72-6bc8-48d7-a40a-07fb4c9788d5",
+            "pageNumber": 36,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,863 @@
+{
+  "runAt": "2026-11-17T18:17:21.164Z",
+  "collection": "rag_hybrid_v1",
+  "embeddingModel": "nomic-embed-text",
+  "generationModel": "claude-haiku-5-5",
+  "generatorOptions": {},
+  "judgeModel": "claude-haiku-5-5",
+  "k": 3,
+  "retrievalMode": "hybrid",
+  "userId": "eval-user",
+  "modes": [
+    "retrieved"
+  ],
+  "summary": {
+    "retrieved": {
+      "answerable": 20,
+      "falseRefusalRate": 0,
+      "correctness": {
+        "correct": 15,
+        "partial": 3,
+        "incorrect": 2,
+        "abstained": 0,
+        "correctRate": 0.75
+      },
+      "faithfulness": 0.99,
+      "unanswerable": 2,
+      "abstentionAccuracy": 1,
+      "judgeErrors": 0
+    }
+  },
+  "rows": [
+    {
+      "questionId": "Q001",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "The fs module is a built-in Node.js core module that provides functions for manipulating the file system. It is loaded with `require`:\n\n```js\nconst fs = require('fs')\nfs.writeFileSync('notes.txt', 'I live in Philadelphia')\n```\n\nIt writes content to a file by calling `writeFileSync`, which takes a file name and the content to write. In this example, it writes \"I live in Philadelphia\" to `notes.txt`. After the script runs, a new `notes.txt` file appears in the directory containing that text.",
+      "abstained": false,
+      "contextPages": [
+        10,
+        10,
+        11
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the fs module provides file system manipulation functions, shows it being imported with require('fs'), and identifies writeFileSync() as the method for writing content to a file, covering all key reference facts without contradiction; the extra example is accurate detail."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The fs module is a built-in Node.js core module.",
+            "supported": true
+          },
+          {
+            "claim": "The fs module provides functions for manipulating the file system.",
+            "supported": true
+          },
+          {
+            "claim": "The fs module is loaded with require.",
+            "supported": true
+          },
+          {
+            "claim": "The fs module writes content to a file by calling writeFileSync.",
+            "supported": true
+          },
+          {
+            "claim": "writeFileSync takes a file name and the content to write.",
+            "supported": true
+          },
+          {
+            "claim": "In the example, the script writes \"I live in Philadelphia\" to notes.txt.",
+            "supported": true
+          },
+          {
+            "claim": "After the script runs, a new notes.txt file appears in the directory containing that text.",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim about the fs module's purpose, its require loading, and the writeFileSync example matches the retrieved context, with the argument description being a direct reading of the example call.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q002",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "npm is a package manager that allows you to install and use third-party npm libraries in your code. It comes with your Node.js installation.",
+      "abstained": false,
+      "contextPages": [
+        12,
+        12,
+        14
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states npm is a package manager for installing third-party libraries, matching the reference's key facts, and adds accurate extra detail that it ships with Node.js; it contradicts nothing."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "npm is a package manager that allows you to install and use third-party npm libraries in your code.",
+            "supported": true
+          },
+          {
+            "claim": "npm comes with your Node.js installation.",
+            "supported": true
+          }
+        ],
+        "reason": "Both claims are directly stated in the context: it says 'When you install Node.js, you also get npm' and that npm is a package manager for installing and using third-party libraries.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q003",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "According to the context, three important things happen:\n\n1. npm creates a `node_modules` directory, which it uses to store the code for the npm modules you have installed.\n2. npm adds the module as a dependency by listing it in the `dependencies` property in `package.json`, so you can track and manage it.\n3. npm creates a `package-lock.json` file, which includes detailed information about the installed modules and helps keep things fast and secure.",
+      "abstained": false,
+      "contextPages": [
+        13,
+        13,
+        14
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate names all three key facts from the reference answer: creating a node_modules directory, adding the module as a dependency in package.json, and creating package-lock.json with detailed installed-module information, with no contradictions and only harmless extra detail."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The install command does three important things.",
+            "supported": true
+          },
+          {
+            "claim": "npm creates a node_modules directory.",
+            "supported": true
+          },
+          {
+            "claim": "npm uses the node_modules directory to store the code for installed npm modules.",
+            "supported": true
+          },
+          {
+            "claim": "npm adds the module as a dependency by listing it in the dependencies property in package.json.",
+            "supported": true
+          },
+          {
+            "claim": "Listing the module in package.json allows you to track and manage it.",
+            "supported": true
+          },
+          {
+            "claim": "npm creates a package-lock.json file.",
+            "supported": true
+          },
+          {
+            "claim": "package-lock.json includes detailed information about the installed modules.",
+            "supported": true
+          },
+          {
+            "claim": "package-lock.json helps keep things fast and secure.",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer about the three actions (creating node_modules, adding the dependency to package.json, and creating package-lock.json) is stated directly in the retrieved context, so the answer is fully faithful.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q004",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "`setTimeout` is a function that runs some code after a specified amount of time has passed. It accepts two arguments:\n\n1. A **callback function**, which runs after the specified time has passed.\n2. The **amount of time to wait, in milliseconds**.\n\nIn the example, `setTimeout(() => { console.log('2 Second Timer') }, 2000)` waits 2 seconds before printing \"2 Second Timer.\"\n\nIt works asynchronously and without blocking. The `setTimeout` call doesn't stop Node.js from running other code while it waits. In the example, \"Stopping\" prints before \"2 Second Timer.\"",
+      "abstained": false,
+      "contextPages": [
+        26,
+        31,
+        27
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate covers the reference's key facts: setTimeout runs code at a later time, takes a callback function as the first argument and a wait time as the second, and adds correct extra detail about milliseconds and non-blocking behavior."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "setTimeout is a function that runs some code after a specified amount of time has passed.",
+            "supported": true
+          },
+          {
+            "claim": "setTimeout accepts two arguments.",
+            "supported": true
+          },
+          {
+            "claim": "The first argument is a callback function that runs after the specified time has passed.",
+            "supported": true
+          },
+          {
+            "claim": "The second argument is the amount of time to wait, in milliseconds.",
+            "supported": true
+          },
+          {
+            "claim": "In the example, setTimeout with a 2000 ms delay waits 2 seconds before printing \"2 Second Timer.\"",
+            "supported": true
+          },
+          {
+            "claim": "setTimeout works asynchronously and without blocking.",
+            "supported": true
+          },
+          {
+            "claim": "The setTimeout call does not stop Node.js from running other code while it waits.",
+            "supported": true
+          },
+          {
+            "claim": "In the example, \"Stopping\" prints before \"2 Second Timer.\"",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer about setTimeout's purpose, its two arguments, the 2-second example output, and its asynchronous non-blocking behavior is directly stated or clearly implied by the retrieved context.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q005",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Object destructuring is a syntax for pulling properties off an object and storing them in standalone variables. This is useful when you use the same object properties repeatedly. Instead of writing `user.name` many times, you can destructure the property into a `name` variable.\n\nIn the example, `const { age, location:address } = user` does the following:\n- `age` is destructured and stored in a variable named `age`.\n- `location` is destructured and stored in a variable named `address`. The colon renames it.\n\nDestructuring also works with function parameters. If an object is passed into a function, it can be destructured in the function definition. The `transaction` function in the context does this, with its `label` and `stock` properties destructured into standalone variables.",
+      "abstained": false,
+      "contextPages": [
+        36,
+        35,
+        35
+      ],
+      "correctness": {
+        "verdict": "incorrect",
+        "reason": "The candidate explains general JavaScript object destructuring but never mentions the reference's core point: defining title and body in the command's builder configuration with demandOption true and type 'string'."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "Object destructuring is a syntax for pulling properties off an object and storing them in standalone variables.",
+            "supported": true
+          },
+          {
+            "claim": "Object destructuring is useful when you use the same object properties repeatedly.",
+            "supported": true
+          },
+          {
+            "claim": "Instead of writing user.name many times, you can destructure the property into a name variable.",
+            "supported": true
+          },
+          {
+            "claim": "In the example, const { age, location:address } = user destructures the age and location properties.",
+            "supported": true
+          },
+          {
+            "claim": "The age property is destructured and stored in a variable named age.",
+            "supported": true
+          },
+          {
+            "claim": "The location property is destructured and stored in a variable named address.",
+            "supported": true
+          },
+          {
+            "claim": "The colon in location:address renames the destructured variable.",
+            "supported": true
+          },
+          {
+            "claim": "Destructuring works with function parameters.",
+            "supported": true
+          },
+          {
+            "claim": "If an object is passed into a function, it can be destructured in the function definition.",
+            "supported": true
+          },
+          {
+            "claim": "The transaction function destructures its label and stock properties into standalone variables.",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer is stated in or directly implied by the retrieved context, which explains object destructuring, the location:address renaming, and the transaction function's destructured label and stock properties.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q006",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "According to the context, process.argv is an array that contains at least two items. The first is the path to the Node.js executable, and the second is the path to the JavaScript file that was executed. Everything after that is a command line argument.",
+      "abstained": false,
+      "contextPages": [
+        16,
+        15,
+        15
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the same key facts as the reference: at least two items, the first being the Node.js executable path, the second the JavaScript file path, and everything after being command line arguments."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "process.argv is an array that contains at least two items.",
+            "supported": true
+          },
+          {
+            "claim": "The first item in process.argv is the path to the Node.js executable.",
+            "supported": true
+          },
+          {
+            "claim": "The second item in process.argv is the path to the JavaScript file that was executed.",
+            "supported": true
+          },
+          {
+            "claim": "Everything after the first two items in process.argv is a command line argument.",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer is stated nearly verbatim in the retrieved context, which describes process.argv as containing at least two items: the Node.js executable path, the executed JavaScript file path, and then command line arguments.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q007",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Use the `hash` method from bcryptjs, passing the plain text password and a salt rounds value (the example uses 8):\n\n```javascript\nconst password = 'Red12345!'\nconst hashedPassword = await bcrypt.hash(password, 8)\n// The hashed password is what would be stored in the database\n```",
+      "abstained": false,
+      "contextPages": [
+        79,
+        79,
+        78
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate gives the same core method, bcrypt.hash(password, 8) with salt rounds 8, and notes that the hashed password (not the plain text) is what gets stored in the database, matching all key facts in the reference answer; mentioning bcryptjs and a code example is extra correct detail."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The hash method from bcryptjs is used to hash a plain text password.",
+            "supported": true
+          },
+          {
+            "claim": "The second argument to bcrypt.hash is a salt rounds value.",
+            "supported": false
+          },
+          {
+            "claim": "The example uses 8 as the second argument.",
+            "supported": true
+          },
+          {
+            "claim": "The example hashes the password 'Red12345!' using bcrypt.hash(password, 8) with the code shown.",
+            "supported": true
+          },
+          {
+            "claim": "The hashed password is what would be stored in the database.",
+            "supported": true
+          }
+        ],
+        "reason": "The answer's core usage of bcryptjs's hash method with a password and the value 8 matches the context, but the context never describes the second argument as salt rounds, so that claim is unsupported.",
+        "score": 0.8
+      }
+    },
+    {
+      "questionId": "Q008",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Use the `sign` method with the `expiresIn` option set to `'7 days'`:\n\n```js\nconst jwt = require('jsonwebtoken')\n\nconst token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days' })\n```\n\n`sign` takes the data to embed (which should include a unique user identifier), the secret phrase, and the options object.",
+      "abstained": false,
+      "contextPages": [
+        82,
+        81,
+        82
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate names jwt.sign() with a payload containing an _id, a secret, and the expiresIn option set to '7 days', matching every key fact in the reference answer without contradiction."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The `sign` method with the `expiresIn` option set to `'7 days'` is used to create the token.",
+            "supported": true
+          },
+          {
+            "claim": "The code `const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days' })` creates a token valid for seven days.",
+            "supported": true
+          },
+          {
+            "claim": "`sign` takes the data to embed in the token.",
+            "supported": true
+          },
+          {
+            "claim": "The embedded data should include a unique identifier for the user.",
+            "supported": true
+          },
+          {
+            "claim": "`sign` takes a secret phrase as its second argument.",
+            "supported": true
+          },
+          {
+            "claim": "`sign` takes an options object as its third argument.",
+            "supported": true
+          }
+        ],
+        "reason": "The candidate's code and explanation of the sign arguments (data, secret phrase, options with expiresIn) all match the retrieved context's jsonwebtoken example and description, so every claim is supported.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q009",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Express route handlers read these values from `req.query`. The query string comes after `?` in the URL, and each key/value pair is separated by `=`, with multiple pairs separated by `&`. For example, in `http://localhost:3000/weather?address=philadelphia&units=us`, the handler can access `req.query.address` (philadelphia) and `req.query.units` (us).",
+      "abstained": false,
+      "contextPages": [
+        48,
+        71,
+        15
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate identifies req.query as the mechanism and gives the req.query.address example matching the reference, with accurate extra detail about the query string format that contradicts nothing."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "Express route handlers read query string values from req.query.",
+            "supported": true
+          },
+          {
+            "claim": "The query string comes after ? in the URL.",
+            "supported": true
+          },
+          {
+            "claim": "Each key/value pair is separated by =.",
+            "supported": true
+          },
+          {
+            "claim": "Multiple key/value pairs are separated by &.",
+            "supported": true
+          },
+          {
+            "claim": "In the URL http://localhost:3000/weather?address=philadelphia&units=us, the handler can access req.query.address with value philadelphia.",
+            "supported": true
+          },
+          {
+            "claim": "In the URL http://localhost:3000/weather?address=philadelphia&units=us, the handler can access req.query.units with value us.",
+            "supported": true
+          }
+        ],
+        "reason": "Every factual claim in the candidate answer is directly stated in the retrieved context, which describes the query string, the = and & separators, and accessing values via req.query with the philadelphia/us example.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q010",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Using Node's `path` module, you call `path.join` with `__dirname` as the first segment, followed by the segment(s) that move to the target directory:\n\n```js\nconst path = require('path')\nconst publicDirectoryPath = path.join(__dirname, '../public')\n```\n\n`__dirname` is the directory path of the current script. The second segment, `'../public'`, moves out of the `src` folder and into the `public` directory. The resulting path is then passed to `express.static`, for example `app.use(express.static(publicDirectoryPath))`.",
+      "abstained": false,
+      "contextPages": [
+        41,
+        42,
+        110
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the same key facts as the reference: path.join starts with __dirname (the current script's directory), a second segment ('../public') moves out of src into the public directory, and the result is passed to express.static, with extra correct code detail added."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "Node's path module is used to build the path, by calling path.join with __dirname as the first segment followed by segments that move to the target directory.",
+            "supported": true
+          },
+          {
+            "claim": "__dirname is the directory path of the current script.",
+            "supported": true
+          },
+          {
+            "claim": "The second segment, '../public', moves out of the src folder and into the public directory.",
+            "supported": true
+          },
+          {
+            "claim": "The resulting path is passed to express.static.",
+            "supported": true
+          },
+          {
+            "claim": "The code example app.use(express.static(publicDirectoryPath)) passes the path to express.static.",
+            "supported": true
+          },
+          {
+            "claim": "The path module is loaded with const path = require('path').",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer matches the retrieved context's explanation of path.join, __dirname, the '../public' segment, and express.static, along with the matching code examples.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q011",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Use `app.use(express.json())`. This parses incoming JSON into a JavaScript object, which you can access on `req.body`.",
+      "abstained": false,
+      "contextPages": [
+        28,
+        70,
+        39
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate names app.use(express.json()) and states that parsed JSON is available as a JavaScript object on req.body, matching every key fact in the reference answer without contradiction."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "You make Express parse incoming JSON request bodies by using `app.use(express.json())`.",
+            "supported": true
+          },
+          {
+            "claim": "express.json parses incoming JSON into a JavaScript object.",
+            "supported": true
+          },
+          {
+            "claim": "The parsed JavaScript object can be accessed on `req.body`.",
+            "supported": true
+          }
+        ],
+        "reason": "All three claims are directly stated in the retrieved context, which says express.json is set up with app.use(express.json()) to parse incoming JSON into a JavaScript object accessible on req.body.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q012",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "A Node.js file makes its functions available by assigning the value it wants to share to `module.exports`. The value stored on `module.exports` becomes the return value of `require` when another script imports that file. For example, `utils.js` assigns its `check` function to `module.exports`, so other scripts can load it with `require('./src/utils.js')`.",
+      "abstained": false,
+      "contextPages": [
+        11,
+        11,
+        91
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the key facts from the reference: values are placed on module.exports, and require returns what was stored there when another file imports it; the added utils.js example is accurate extra detail and contradicts nothing."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "A Node.js file makes its functions available by assigning the value it wants to share to module.exports.",
+            "supported": true
+          },
+          {
+            "claim": "The value stored on module.exports becomes the return value of require when another script imports that file.",
+            "supported": true
+          },
+          {
+            "claim": "utils.js assigns its check function to module.exports.",
+            "supported": true
+          },
+          {
+            "claim": "Other scripts can load the check function by using require('./src/utils.js').",
+            "supported": true
+          }
+        ],
+        "reason": "All four claims are directly stated in the retrieved context, which explains that module.exports holds the exported value, becomes require's return value, and that utils.js assigns its check function to module.exports and is loaded via require('./src/utils.js').",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q013",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "You install an npm module globally by adding the `-g` flag to the installation command. For example:\n\n```\nnpm install -g nodemon@1.18.5\n```",
+      "abstained": false,
+      "contextPages": [
+        14,
+        14,
+        14
+      ],
+      "correctness": {
+        "verdict": "partial",
+        "reason": "The candidate correctly states the -g flag and gives the same example, but omits the reference's key fact that globally installed modules are not added to package.json dependencies nor placed in node_modules."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "You install an npm module globally by adding the -g flag to the installation command.",
+            "supported": true
+          },
+          {
+            "claim": "The example command npm install -g nodemon@1.18.5 installs nodemon globally.",
+            "supported": true
+          }
+        ],
+        "reason": "The candidate answer's claims that the -g flag is added to the install command and the example command npm install -g nodemon@1.18.5 are both stated directly in the retrieved context.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q014",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Nodemon lets you start a Node.js application and then automatically restarts the application whenever any of the app's scripts change. This means you don't have to switch between the terminal and text editor to restart your app after every change. You can stop it by pressing ctrl + c in the terminal.",
+      "abstained": false,
+      "contextPages": [
+        58,
+        14,
+        15
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the key facts from the reference: nodemon starts a Node.js application and automatically restarts it when the app's scripts change, sparing manual restarts; the extra detail about stopping with ctrl+c is accurate and does not contradict the reference."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "Nodemon lets you start a Node.js application and automatically restarts the application whenever any of the app's scripts change.",
+            "supported": true
+          },
+          {
+            "claim": "Using nodemon means you don't have to switch between the terminal and text editor to restart your app after every change.",
+            "supported": true
+          },
+          {
+            "claim": "You can stop nodemon by pressing ctrl + c in the terminal.",
+            "supported": true
+          }
+        ],
+        "reason": "All three claims are directly stated in the retrieved context, which describes nodemon restarting an app when its scripts change, removing the need to switch between terminal and editor, and stopping with ctrl + c from the terminal.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q015",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "The PHP SimpleXML extension (installed with `sudo apt install php-simplexml`).",
+      "abstained": false,
+      "contextPages": [
+        1,
+        1,
+        5
+      ],
+      "correctness": {
+        "verdict": "partial",
+        "reason": "The candidate correctly identifies the PHP SimpleXML extension and the apt install command, but omits the reference's key follow-up step of restarting PHP-FPM."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The PHP SimpleXML extension needs to be installed to fix the zinsiehe.com sitemap.",
+            "supported": true
+          },
+          {
+            "claim": "The PHP SimpleXML extension is installed with the command `sudo apt install php-simplexml`.",
+            "supported": true
+          }
+        ],
+        "reason": "The context explicitly lists under zinsiehe.com Day 1 'Install PHP SimpleXML extension: sudo apt install php-simplexml' in the sitemap crisis section, so the answer and its installation command are both supported.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q016",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "The current SEO scores are:\n\n- zinsiehe.com: 31/100\n- zintellix.com: 24/100\n\nThe target is a 75+ SEO score, along with Page 1 rankings for target keywords.",
+      "abstained": false,
+      "contextPages": [
+        1,
+        29,
+        25
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate gives zinsiehe.com 31/100 and zintellix.com 24/100, matching the reference, and states the target of a 75+ SEO score with Page 1 rankings for target keywords, so it contains every key fact without contradiction."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The current SEO score of zinsiehe.com is 31/100.",
+            "supported": true
+          },
+          {
+            "claim": "The current SEO score of zintellix.com is 24/100.",
+            "supported": true
+          },
+          {
+            "claim": "The target is a 75+ SEO score.",
+            "supported": true
+          },
+          {
+            "claim": "The target also includes Page 1 rankings for target keywords.",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer matches the context's 'Current Status' scores (31/100 and 24/100) and the stated target of 75+ SEO Score with Page 1 rankings for target keywords, so the answer is fully faithful.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q017",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "The Open Graph image should be 1200×630px.",
+      "abstained": false,
+      "contextPages": [
+        95,
+        2,
+        2
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the Open Graph image should be 1200×630px, which matches the reference answer exactly and contains no contradictions."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The Open Graph image should be 1200×630px.",
+            "supported": true
+          }
+        ],
+        "reason": "The context repeatedly states to create a 1200×630px OG image for both zinsiehe.com and zintellix.com, so the candidate answer is faithful to the retrieved context.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q018",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "Each service page on zinsiehe.com should be 800-1200 words.",
+      "abstained": false,
+      "contextPages": [
+        3,
+        6,
+        7
+      ],
+      "correctness": {
+        "verdict": "partial",
+        "reason": "The candidate correctly gives the 800-1200 word length but omits the key fact that this applies to all 14 service pages (the reference's scope), so it is missing one key fact."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "Each service page on zinsiehe.com should be 800-1200 words.",
+            "supported": true
+          }
+        ],
+        "reason": "The context states under Day 6-7 Service Pages (zinsiehe.com) to 'Expand all 14 service pages to 800-1200 words each', which directly supports the candidate answer.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q019",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "The context doesn't give an expected improvement for the performance fixes alone. The Week 1 Quick Wins summary lists \"Fix performance issues (both sites)\" as item 5, with an expected **+10-15 SEO score points** for all five quick wins combined.",
+      "abstained": false,
+      "contextPages": [
+        26,
+        25,
+        27
+      ],
+      "correctness": {
+        "verdict": "incorrect",
+        "reason": "The reference answer says the expected improvement is a 30% improvement in Core Web Vitals, but the candidate claims the context gives no expected improvement for the performance fixes alone and instead cites a +10-15 SEO score point figure for all quick wins combined, which contradicts and misses the core point."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The context doesn't give an expected improvement for the performance fixes alone.",
+            "supported": true
+          },
+          {
+            "claim": "The Week 1 Quick Wins summary lists \"Fix performance issues (both sites)\" as item 5.",
+            "supported": true
+          },
+          {
+            "claim": "The expected improvement for the Week 1 Quick Wins is +10-15 SEO score points.",
+            "supported": true
+          },
+          {
+            "claim": "The +10-15 SEO score points is expected for all five quick wins combined.",
+            "supported": true
+          }
+        ],
+        "reason": "The context lists performance fixes as item 5 of the Week 1 quick wins with a single expected gain of +10-15 SEO score points for the group, so the answer accurately reflects the context and correctly notes no separate figure exists for performance alone.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q020",
+      "mode": "retrieved",
+      "answerable": true,
+      "answer": "The llms.txt file should be created or fixed in proper Markdown format for both sites. It should include the company description, services, and contact info, along with a list of key pages and their descriptions. For zintellix.com, the self-referencing URL in the file also needs to be fixed.",
+      "abstained": false,
+      "contextPages": [
+        4,
+        13,
+        12
+      ],
+      "correctness": {
+        "verdict": "correct",
+        "reason": "The candidate states the core recommendation from the reference: create or fix the llms.txt in proper Markdown format with company description, services, contact info, and a list of key pages with descriptions. The extra details about both sites and a self-referencing URL fix are additional context not contradicting the reference."
+      },
+      "faithfulness": {
+        "claims": [
+          {
+            "claim": "The llms.txt file should be created or fixed in proper Markdown format.",
+            "supported": true
+          },
+          {
+            "claim": "The llms.txt file should be created or fixed for both sites.",
+            "supported": true
+          },
+          {
+            "claim": "The llms.txt file should include the company description, services, and contact info.",
+            "supported": true
+          },
+          {
+            "claim": "The llms.txt file should include a list of key pages with descriptions.",
+            "supported": true
+          },
+          {
+            "claim": "For zintellix.com, the self-referencing URL in the llms.txt file needs to be fixed.",
+            "supported": true
+          }
+        ],
+        "reason": "Every claim in the candidate answer is directly stated in the context's Day 10 checklist for llms.txt, including the 'Both Sites' scope and the zintellix.com-specific self-referencing URL fix.",
+        "score": 1
+      }
+    },
+    {
+      "questionId": "Q021",
+      "mode": "retrieved",
+      "answerable": false,
+      "answer": "I don't know.",
+      "abstained": true,
+      "contextPages": [
+        52,
+        99,
+        57
+      ],
+      "abstentionCorrect": true
+    },
+    {
+      "questionId": "Q022",
+      "mode": "retrieved",
+      "answerable": false,
+      "answer": "I don't know.",
+      "abstained": true,
+      "contextPages": [
+        52,
+        16,
+        1
+      ],
+      "abstentionCorrect": true
+    }
+  ]
+}
