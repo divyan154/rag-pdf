@@ -1,0 +1,145 @@
+{
+  "dataset_id": "nodejs_course_v1",
+  "document_id": "nodejs_dev_course_andrew_mead_v3",
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "What is the purpose of the Node.js fs module, and how is it used to write content to a file?",
+      "expected_answer": "The fs module provides functions for manipulating the file system. It can be imported using require('fs'), and writeFileSync() can be used to write content to a file.",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 10,
+          "text": "The fs module provides functions you can use to manipulate the file system. The script uses writeFileSync to write a message to notes.txt."
+        }
+      ]
+    },
+    {
+      "id": "Q002",
+      "question": "How does a Node.js file make a function available to another file using the CommonJS module system?",
+      "expected_answer": "The file assigns the function or value to module.exports. Another file can then import it using require() with the appropriate relative path.",
+      "category": "conceptual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 11,
+          "text": "The value stored on module.exports will be the return value for require when the script is imported."
+        }
+      ]
+    },
+    {
+      "id": "Q003",
+      "question": "What three important things happen when an npm module is installed using npm install?",
+      "expected_answer": "npm creates a node_modules directory, adds the module as a dependency in package.json, and creates a package-lock.json file containing detailed information about installed modules.",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 13,
+          "text": "First, it creates a node_modules directory. Second, npm adds the module as a dependency by listing it in the dependencies property in package.json. Third, npm creates a package-lock.json file."
+        }
+      ]
+    },
+    {
+      "id": "Q004",
+      "question": "If a Node.js script is executed using the command 'node app.js add', what does process.argv[2] contain, and why?",
+      "expected_answer": "It contains 'add'. The first two entries in process.argv are the Node.js executable path and the executed JavaScript file path, so the third entry contains the first user-provided command-line argument.",
+      "category": "reasoning",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 15,
+          "text": "The first is the path to the Node.js executable. The second is the path to the JavaScript file that was executed. Everything after that is a command line argument."
+        }
+      ]
+    },
+    {
+      "id": "Q005",
+      "question": "How can Yargs be configured to require both title and body options for an add command, and restrict both options to string values?",
+      "expected_answer": "Define title and body inside the command's builder configuration. Set demandOption to true and type to 'string' for each option.",
+      "category": "procedural",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 17,
+          "text": "Both options are required because demandOption is set to true. Both are also set up to accept string input because type is set to 'string'."
+        }
+      ]
+    },
+    {
+      "id": "Q006",
+      "question": "What is the difference between JSON.stringify() and JSON.parse() in JavaScript?",
+      "expected_answer": "JSON.stringify() converts a JavaScript object into a JSON string, whereas JSON.parse() converts a JSON string into a JavaScript object.",
+      "category": "conceptual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 18,
+          "text": "JSON.stringify converts a JavaScript object into a JSON string, while JSON.parse converts a JSON string into a JavaScript object."
+        }
+      ]
+    },
+    {
+      "id": "Q007",
+      "question": "Why can arrow functions be problematic when used as object methods that depend on their own this value?",
+      "expected_answer": "Arrow functions do not bind their own this value. Instead, they access the this value from the scope in which they were defined. Therefore, they may not refer to the object containing the method.",
+      "category": "conceptual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 20,
+          "text": "Arrow functions don't bind their own this value. Instead, the this value of the scope in which it was defined is accessible."
+        },
+        {
+          "page_number": 21,
+          "text": "For methods, ES6 provides a new method definition syntax."
+        }
+      ]
+    },
+    {
+      "id": "Q008",
+      "question": "In the asynchronous setTimeout example, why does 'Stopping' appear before '2 Second Timer' in the terminal output?",
+      "expected_answer": "setTimeout is asynchronous and non-blocking. Node.js continues executing the remaining synchronous code instead of waiting for the timer, so 'Stopping' is printed before the timer callback executes.",
+      "category": "reasoning",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 26,
+          "text": "Notice that 'Stopping' prints before '2 Second Timer'. That's because setTimeout is asynchronous and non-blocking."
+        }
+      ]
+    },
+    {
+      "id": "Q009",
+      "question": "How does bcryptjs support secure password storage and password verification?",
+      "expected_answer": "bcrypt.hash() hashes a plain-text password before it is stored in the database. During login, bcrypt.compare() compares the supplied plain-text password with the previously stored hash to determine whether they match.",
+      "category": "procedural",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 78,
+          "text": "The hash method can be used to hash the plain text password. The compare method is used to compare a plain text password against a previously hashed password."
+        }
+      ]
+    },
+    {
+      "id": "Q010",
+      "question": "How does the course demonstrate creating and verifying a JSON Web Token using the jsonwebtoken library?",
+      "expected_answer": "The jwt.sign() method creates a token using a payload, a secret phrase, and optional configuration such as expiresIn. The jwt.verify() method validates the token using the token and the same secret phrase, returning the embedded data if valid.",
+      "category": "procedural",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 82,
+          "text": "The jwt.sign method creates a token. The third argument uses expiresIn to create a token that's valid for seven days."
+        },
+        {
+          "page_number": 82,
+          "text": "The server can verify the token using verify. This requires two arguments: the token to validate and the secret phrase that the token was created with."
+        }
+      ]
+    }
+  ]
+}
+    

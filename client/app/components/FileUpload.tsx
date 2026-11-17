@@ -1,6 +1,8 @@
 "use client";
-import { Form, Upload } from "lucide-react";
+import { Upload } from "lucide-react";
+import { useAuth } from "@clerk/nextjs";
 export default function FileUpload() {
+  const { getToken } = useAuth();
   const handleFileUploadClick = () => {
     const el = document.createElement("input");
     el.setAttribute("type", "file");
@@ -12,8 +14,10 @@ export default function FileUpload() {
         const formData = new FormData();
         if (file) {
           formData.append("pdf", file);
+          const token = await getToken();
           await fetch("http://localhost:8000/upload/pdf", {
             method: "POST",
+            headers: token ? { Authorization: `Bearer ${token}` } : undefined,
             body: formData,
           });
           console.log("File uploaded successfully");

@@ -1,0 +1,311 @@
+{
+  "dataset_id": "rag_v2",
+  "documents": {
+    "node": "PDF-Guide-Node-Andrew-Mead-v3.pdf",
+    "seo": "6-month-seo-roadmap.md.pdf"
+  },
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "What is the purpose of the Node.js fs module, and how is it used to write content to a file?",
+      "expected_answer": "The fs module provides functions for manipulating the file system. It can be imported using require('fs'), and writeFileSync() can be used to write content to a file.",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 10,
+          "text": "The script above uses require to load in the fs module. This is a built-in Node.js module that provides functions you can use to manipulate the file system. The script uses writeFileSync to write a message to notes.txt."
+        }
+      ],
+      "document": "node"
+    },
+    {
+      "id": "Q002",
+      "question": "What is npm?",
+      "expected_answer": "npm is NodeJs's package manager that allows to install third party libraries",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 12,
+          "text": "npm is a package manager that allows you to install and use third-party npm libraries in your code."
+        }
+      ],
+      "document": "node"
+    },
+    {
+      "id": "Q003",
+      "question": "What three important things happen when an npm module is installed using npm install?",
+      "expected_answer": "npm creates a node_modules directory, adds the module as a dependency in package.json, and creates a package-lock.json file containing detailed information about installed modules.",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 13,
+          "text": "First, it creates a node_modules directory. npm uses this directory to store all the code for the npm modules you have installed. Second, npm adds the module as a dependency by listing it in the dependencies property in package.json. This allows you to track and manage the module you have installed. Third, npm creates a package-lock.json file. This includes detailed in"
+        }
+      ],
+      "document": "node"
+    },
+    {
+      "id": "Q004",
+      "question": "What is setTimeout function and how does it work?",
+      "expected_answer": "settimeout is a function that allows to run code at some later time. it takes two arguments first is callback fuction and another is waitingTIme",
+      "category": "factual",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 26,
+          "text": "setTimeout is a function that allows you to run some code after a specific amount of time has passed. setTimeout accepts two arguments. The first is a callback function. This function will run after the specified amount of time has passed. The second argument is the amount of time in milliseconds to wait."
+        }
+      ],
+      "document": "node"
+    },
+    {
+      "id": "Q005",
+      "question": "How does object destructring works? ",
+      "expected_answer": "Define title and body inside the command's builder configuration. Set demandOption to true and type to 'string' for each option.",
+      "category": "procedural",
+      "answerable": true,
+      "evidence": [
+        {
+          "page_number": 35,
+          "text": "The second ES6 feature is object destructuring. Object destructuring gives you a syntax for pulling properties off of objects and into standalone variables. This is useful when working with the same object properties throughout your code. "
+        },
+        {
+          "page_number": 36,
+          "text": "const user = { name: 'andrew', age: 27, location: 'philadelphia' } // the line below uses destructuring const { age, location:address } = user console.log(age) console.log(address)"
+        }
+      ],
+      "document": "node"
+    },
+    {
+      "id": "Q006",
+      "question": "What does the process.argv array contain?",
+      "expected_answer": "At least two items: the path to the Node.js executable and the path to the JavaScript file being run. Everything after that is a command line argument.",
+      "category": "keyword",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 15,
+          "text": "process.argv. This array contains at least two items. The first is the path to the Node.js executable. The second is the path to the JavaScript file that was executed. Everything after that is a command line argument."
+        }
+      ]
+    },
+    {
+      "id": "Q007",
+      "question": "How do you hash a plain text password with bcrypt?",
+      "expected_answer": "Use await bcrypt.hash(password, 8). The hashed password is what gets stored in the database instead of the plain text.",
+      "category": "keyword",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 79,
+          "text": "const hashedPassword = await bcrypt.hash(password, 8) // The hashed password is what would be stored in the database"
+        }
+      ]
+    },
+    {
+      "id": "Q008",
+      "question": "How do you create a JSON web token with jsonwebtoken that is valid for seven days?",
+      "expected_answer": "Call jwt.sign() with a payload object such as { _id: 'abc123' }, a secret string, and the option { expiresIn: '7 days' }.",
+      "category": "keyword",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 82,
+          "text": "const token = jwt.sign({ _id: 'abc123' }, 'thisismynewcourse', { expiresIn: '7 days' })"
+        }
+      ]
+    },
+    {
+      "id": "Q009",
+      "question": "How can an Express route read the values passed after the question mark in a URL?",
+      "expected_answer": "Through req.query. For example, req.query.address returns the value of the address key in the query string.",
+      "category": "paraphrase",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 48,
+          "text": "The Express route handler can access the query string key/value pairs on req.query. The handler below uses req.query.address to get the value provided for address."
+        }
+      ]
+    },
+    {
+      "id": "Q010",
+      "question": "How do you build the path to a public directory in Express using path.join and __dirname?",
+      "expected_answer": "path.join builds a path from segments. It starts with __dirname, the current script's directory, and a second segment moves out of src into the public directory. The result is passed to express.static.",
+      "category": "keyword",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 41,
+          "text": "The call to path.join allows you to manipulate a path by providing individual path segments. It starts with __dirname which is the directory path for the current script."
+        }
+      ]
+    },
+    {
+      "id": "Q011",
+      "question": "How do you make Express parse incoming JSON request bodies?",
+      "expected_answer": "Call app.use(express.json()). It parses incoming JSON into a JavaScript object that you can access on req.body.",
+      "category": "factual",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 70,
+          "text": "express.json is also setup to parse incoming JSON into a JavaScript object which you can access on req.body."
+        }
+      ]
+    },
+    {
+      "id": "Q012",
+      "question": "How does a Node.js file make its functions available to other files?",
+      "expected_answer": "It stores the values to share on module.exports. When another file calls require, Node runs the script and returns what was placed on module.exports.",
+      "category": "paraphrase",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 11,
+          "text": "Node.js runs the scripts that you require. That means the require call above will cause utils.js to run. Node.js provides the required script with a place to store values that should be exported as part of the library. This is on module.exports."
+        }
+      ]
+    },
+    {
+      "id": "Q013",
+      "question": "How do you install an npm module globally?",
+      "expected_answer": "Add the -g flag to the install command, for example npm install -g nodemon@1.18.5. Globally installed modules are not added as dependencies in package.json and are not placed in node_modules.",
+      "category": "factual",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 14,
+          "text": "npm modules can be installed globally by adding a -g flag to the installation command."
+        }
+      ]
+    },
+    {
+      "id": "Q014",
+      "question": "What does nodemon do?",
+      "expected_answer": "It starts a Node.js application and restarts it automatically whenever the app's scripts change, so you don't have to restart it by hand.",
+      "category": "factual",
+      "answerable": true,
+      "document": "node",
+      "evidence": [
+        {
+          "page_number": 14,
+          "text": "This can be used to start and Node.js application and then restart the application any of the app scripts change."
+        }
+      ]
+    },
+    {
+      "id": "Q015",
+      "question": "Which PHP extension needs to be installed to fix the zinsiehe.com sitemap?",
+      "expected_answer": "The PHP SimpleXML extension, installed with sudo apt install php-simplexml, followed by restarting PHP-FPM.",
+      "category": "keyword",
+      "answerable": true,
+      "document": "seo",
+      "evidence": [
+        {
+          "page_number": 1,
+          "text": "Install PHP SimpleXML extension: sudo apt install php-simplexml"
+        }
+      ]
+    },
+    {
+      "id": "Q016",
+      "question": "What are the current SEO scores of the two websites and what is the target?",
+      "expected_answer": "zinsiehe.com scores 31/100 and zintellix.com scores 24/100. The target is a 75+ SEO score with page 1 rankings for target keywords.",
+      "category": "factual",
+      "answerable": true,
+      "document": "seo",
+      "evidence": [
+        {
+          "page_number": 1,
+          "text": "zinsiehe.com: 31/100 SEO Score zintellix.com: 24/100 SEO Score Target: 75+ SEO Score, Page 1 rankings for target keywords"
+        }
+      ]
+    },
+    {
+      "id": "Q017",
+      "question": "What size should the Open Graph image be?",
+      "expected_answer": "1200×630px.",
+      "category": "factual",
+      "answerable": true,
+      "document": "seo",
+      "evidence": [
+        {
+          "page_number": 2,
+          "text": "Create 1200×630px OG image"
+        }
+      ]
+    },
+    {
+      "id": "Q018",
+      "question": "How long should each service page on zinsiehe.com be?",
+      "expected_answer": "All 14 service pages should be expanded to 800-1200 words each.",
+      "category": "factual",
+      "answerable": true,
+      "document": "seo",
+      "evidence": [
+        {
+          "page_number": 3,
+          "text": "Expand all 14 service pages to 800-1200 words each"
+        }
+      ]
+    },
+    {
+      "id": "Q019",
+      "question": "What improvement is expected from the performance quick wins?",
+      "expected_answer": "A 30% improvement in Core Web Vitals.",
+      "category": "paraphrase",
+      "answerable": true,
+      "document": "seo",
+      "evidence": [
+        {
+          "page_number": 3,
+          "text": "Impact: 30% improvement in Core Web Vitals"
+        }
+      ]
+    },
+    {
+      "id": "Q020",
+      "question": "What should be done with the llms.txt file?",
+      "expected_answer": "Create or fix it in proper Markdown format, including the company description, services and contact info, and list the key pages with descriptions.",
+      "category": "keyword",
+      "answerable": true,
+      "document": "seo",
+      "evidence": [
+        {
+          "page_number": 4,
+          "text": "Create/fix llms.txt file (proper Markdown format)"
+        }
+      ]
+    },
+    {
+      "id": "Q021",
+      "question": "How do I deploy a Node.js application using Docker?",
+      "expected_answer": null,
+      "category": "unanswerable",
+      "answerable": false,
+      "document": "node",
+      "evidence": []
+    },
+    {
+      "id": "Q022",
+      "question": "Which CRM platform does the roadmap recommend?",
+      "expected_answer": null,
+      "category": "unanswerable",
+      "answerable": false,
+      "document": "seo",
+      "evidence": []
+    }
+  ]
+}

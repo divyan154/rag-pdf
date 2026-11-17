@@ -1,0 +1,382 @@
+[
+  {
+    "questionId": "Q001",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 10,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "cf9150b4-70b1-4c41-8f50-a33816b2471a",
+            "pageNumber": 10,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q002",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 12,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "efed6341-ace2-404b-85e4-30f4e6cc77e0",
+            "pageNumber": 12,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q003",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 13,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "0982559e-437d-4d96-a1ec-27abd796b929",
+            "pageNumber": 13,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q004",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 26,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "d7e27a1a-3bb2-4fb5-bf8c-98baefab6b59",
+            "pageNumber": 26,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q005",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 35,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "ed39a05b-7dd7-444d-86e3-29f2fd22c31c",
+            "pageNumber": 35,
+            "matchType": "exact"
+          }
+        ]
+      },
+      {
+        "evidenceIndex": 1,
+        "page": 36,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "0790146a-fc4b-429d-9e81-12741e48f0be",
+            "pageNumber": 36,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q006",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 15,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "66230007-f2c6-4895-9398-e2e8243996d0",
+            "pageNumber": 15,
+            "matchType": "exact"
+          },
+          {
+            "pointId": "dedb7c04-7ace-4cd1-863f-d157b97ed5a9",
+            "pageNumber": 15,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q007",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 79,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "ff7404d4-1528-4dbe-9116-1f8482e7a2c6",
+            "pageNumber": 79,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q008",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 82,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "6509f063-d673-4fb8-a372-b09c729c6b58",
+            "pageNumber": 82,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q009",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 48,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "89d524a8-2db2-4b44-952a-e71b6edc8275",
+            "pageNumber": 48,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q010",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 41,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "13505118-1af3-4a72-90f0-53d86227bc41",
+            "pageNumber": 41,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q011",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 70,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "a3cf2d00-5032-4bd2-90de-943f6d1911ec",
+            "pageNumber": 70,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q012",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 11,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "0c3e96d1-53a5-47e2-8b83-ace45b0305d3",
+            "pageNumber": 11,
+            "matchType": "exact"
+          },
+          {
+            "pointId": "c6251790-bf9a-4347-9f36-43ab33fa7549",
+            "pageNumber": 11,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q013",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 14,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "c0646edd-e86d-45b4-8476-98b2bf9b23d3",
+            "pageNumber": 14,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q014",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 14,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "0a1b4aad-5d39-4984-b262-a905baa0771e",
+            "pageNumber": 14,
+            "matchType": "exact"
+          },
+          {
+            "pointId": "c267fc30-e91a-4d44-bed7-fabaaf2eef56",
+            "pageNumber": 14,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q015",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 1,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "dd43bab6-0283-4763-9358-71042efdabb8",
+            "pageNumber": 1,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q016",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 1,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "dd43bab6-0283-4763-9358-71042efdabb8",
+            "pageNumber": 1,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q017",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 2,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "4fc81336-6652-4530-8780-b22f0e435307",
+            "pageNumber": 2,
+            "matchType": "exact"
+          },
+          {
+            "pointId": "fb2bb46a-9d91-401f-904e-7fd9cd582b3b",
+            "pageNumber": 2,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q018",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 3,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "993fac18-e486-4765-8ba2-dab424a0417a",
+            "pageNumber": 3,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q019",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 3,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "993fac18-e486-4765-8ba2-dab424a0417a",
+            "pageNumber": 3,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q020",
+    "evidenceMappings": [
+      {
+        "evidenceIndex": 0,
+        "page": 4,
+        "status": "exact_match",
+        "matches": [
+          {
+            "pointId": "927e8bb8-457e-47e8-81e2-96d4550bfefb",
+            "pageNumber": 4,
+            "matchType": "exact"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "questionId": "Q021",
+    "evidenceMappings": []
+  },
+  {
+    "questionId": "Q022",
+    "evidenceMappings": []
+  }
+]

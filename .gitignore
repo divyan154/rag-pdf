@@ -16,3 +16,7 @@ yarn-error.log*
 dist/
 build/
 .next/
+
+# Uploaded PDFs (keep the folder, multer does not create it)
+server/uploads/*
+!server/uploads/.gitkeep

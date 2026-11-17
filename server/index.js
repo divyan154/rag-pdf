@@ -1,12 +1,35 @@
+import "dotenv/config";
+import { randomUUID } from "node:crypto";
 import express from "express";
-import ollama from "ollama";
 import multer from "multer";
 import cors from "cors";
 import { Queue } from "bullmq";
-import { OllamaEmbeddings } from "@langchain/ollama";
-import { QdrantVectorStore } from "@langchain/qdrant";
+import { verifyToken } from "@clerk/backend";
+import { retrieve, DEFAULT_K } from "./retrieval.js";
+import { buildContext, generateAnswer } from "./generation.js";
 
 const app = express();
+
+async function requireAuth(req, res, next) {
+  const authHeader = req.headers.authorization || "";
+  const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
+
+  if (!token) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+
+  try {
+    const payload = await verifyToken(token, { secretKey: process.env.CLERK_SECRET_KEY });
+    if (!payload.sub) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
+    req.userId = payload.sub;
+    next();
+  } catch (err) {
+    console.error("Auth failed:", err.message);
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+}
 
 app.use(express.json());
 
@@ -25,70 +48,41 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 app.get("/", (req, res) => {
-  res.send("Hello from Rag server");
+  res.send("Hello from Rag serverr");
 });
 
-app.post("/upload/pdf", upload.single("pdf"), async (req, res) => {
+app.post("/upload/pdf", requireAuth, upload.single("pdf"), async (req, res) => {
+  const documentId = randomUUID();
+
   await queue.add("pdf-process", {
     name: req.file.originalname,
     path: req.file.path,
     destination: req.file.destination,
+    userId: req.userId,
+    documentId,
   });
 
-  res.send({ message: "File uploaded successfully", file: req.file });
+  res.send({ message: "File uploaded successfully", documentId, file: req.file });
 });
 
-app.post("/chat", async (req, res) => {
+app.post("/chat", requireAuth, async (req, res) => {
   try {
     console.log("Received /chat request with body:", req.body);
     const userQuery = req.body.question;
-    const embeddings = new OllamaEmbeddings({
-      model: "nomic-embed-text",
-      baseUrl: "http://localhost:11434",
+    const retrieved = await retrieve(userQuery, DEFAULT_K, {
+      userId: req.userId,
+      documentId: req.body.documentId,
     });
-
-    const vectorStore = await QdrantVectorStore.fromExistingCollection(
-      embeddings,
-      {
-        url: "http://localhost:6333",
-        collectionName: "langchainjs-testing",
-      }
-    );
-
-    const retriever = vectorStore.asRetriever({ k: 3 });
-    const result = await retriever.invoke(userQuery);
+    const result = retrieved.map((r) => r.doc);
 
     console.log("Retrieved results:", result);
 
-    const contextText = result.map((r) => r.pageContent).join("\n\n---\n\n");
+    console.log("📚 CONTEXT SENT TO LLM:\n", buildContext(result));
 
-    console.log("📚 CONTEXT SENT TO LLM:\n", contextText);
-
-    const prompt = `
-Answer the question using ONLY the context below.
-If the answer is not present in the context, reply exactly: I don't know.
-
-Context:
-${contextText}
-
-Question:
-${userQuery}
-
-Answer:
-`;
-
-    const response = await ollama.chat({
-      model: "llama3.1:latest",
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-    });
-    console.log(response.message.content);
+    const answer = await generateAnswer(userQuery, result);
+    console.log(answer);
     res.status(200).json({
-      answer: response.message.content,
+      answer,
       sources: result,
     });
   } catch (err) {
