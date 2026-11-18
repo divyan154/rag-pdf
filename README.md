@@ -5,7 +5,7 @@ Chat with your own PDFs. Each user only searches their own documents.
 ## How it works
 
 1. A signed-in user (Clerk) uploads a PDF. The server queues it with BullMQ.
-2. The worker splits the PDF into chunks, embeds them with Ollama (`nomic-embed-text`), and stores them in Qdrant. Each chunk carries `userId`, `documentId` and `originalName` metadata.
+2. The worker splits the PDF into chunks, embeds them with Cohere (`embed-english-v3.0`, 1024 dimensions), and stores them in Qdrant. Each chunk carries `userId`, `documentId` and `originalName` metadata.
 3. A question is answered in three steps:
    - **Metadata filter:** results are restricted to the signed-in user's chunks, and optionally to one `documentId`.
    - **Hybrid search:** dense (semantic) and sparse (keyword) search are combined with reciprocal rank fusion.
@@ -13,15 +13,14 @@ Chat with your own PDFs. Each user only searches their own documents.
 
 ## Stack
 
-Next.js + Clerk (client) · Express + BullMQ (server) · Qdrant · Valkey · Ollama (embeddings) · Anthropic API (answers)
+Next.js + Clerk (client) · Express + BullMQ (server) · Qdrant · Valkey/Redis · Cohere (embeddings) · Anthropic API (answers)
 
 ## Setup
 
-Requires Node 22 LTS, pnpm, Docker, a Clerk app, and an Anthropic API key.
+Requires Node 22 LTS, pnpm, Docker, a Clerk app, an Anthropic API key and a Cohere API key.
 
 ```bash
-docker compose up -d                                   # Valkey :6379, Ollama :11434, Qdrant :6333
-docker exec -it <ollama-container> ollama pull nomic-embed-text
+docker compose up -d                                   # Valkey :6379, Qdrant :6333 (the Ollama service is no longer used)
 cd server && pnpm install
 cd ../client && pnpm install
 ```
@@ -31,7 +30,11 @@ cd ../client && pnpm install
 QDRANT_URL=http://localhost:6333
 CLERK_SECRET_KEY=...
 ANTHROPIC_API_KEY=...
-QDRANT_COLLECTION=rag_hybrid_v1     # use this name; the default is the old dense-only collection
+COHERE_API_KEY=...
+QDRANT_COLLECTION=rag_cohere_v1     # use a new name: each embedding model needs its own collection
+# QDRANT_API_KEY=...                # Qdrant Cloud only
+# REDIS_URL=rediss://...            # hosted Redis only (default localhost:6379)
+# CLIENT_ORIGIN=https://your-app.vercel.app   # restrict CORS in production
 # GENERATION_MODEL=claude-haiku-5-5 # optional override
 # RETRIEVAL_MODE=hybrid             # dense | sparse | hybrid
 ```
@@ -40,13 +43,13 @@ QDRANT_COLLECTION=rag_hybrid_v1     # use this name; the default is the old dens
 ```env
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
 CLERK_SECRET_KEY=...
+# NEXT_PUBLIC_API_URL=https://your-api.onrender.com   # default http://localhost:8000
 ```
 
 ## Run
 
 ```bash
-cd server && pnpm dev          # API on http://localhost:8000
-cd server && pnpm dev-worker   # ingestion worker
+cd server && pnpm dev          # API on http://localhost:8000 (also runs the ingestion worker)
 cd client && pnpm dev          # UI on http://localhost:3000
 ```
 

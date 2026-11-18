@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState, useRef, useEffect } from "react";
 import { useAuth } from "@clerk/nextjs";
+import { API_URL } from "@/lib/api";
 
 interface IMessage {
   role: "user" | "assistant";
@@ -37,7 +38,7 @@ export default function Chat() {
 
     try {
       const token = await getToken();
-      const res = await fetch("http://localhost:8000/chat", {
+      const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

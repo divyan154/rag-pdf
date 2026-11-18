@@ -7,6 +7,8 @@ import { Queue } from "bullmq";
 import { verifyToken } from "@clerk/backend";
 import { retrieve, DEFAULT_K } from "./retrieval.js";
 import { buildContext, generateAnswer } from "./generation.js";
+import { connection } from "./config/redis.js";
+import "./worker.js"; // runs the ingestion worker in this process
 
 const app = express();
 
@@ -33,10 +35,8 @@ async function requireAuth(req, res, next) {
 
 app.use(express.json());
 
-const queue = new Queue("ProcessPdfQueue", {
-  connection: { host: "localhost", port: 6379 },
-});
-app.use(cors());
+const queue = new Queue("ProcessPdfQueue", { connection });
+app.use(cors({ origin: process.env.CLIENT_ORIGIN ?? true }));
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");

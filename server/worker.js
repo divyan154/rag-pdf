@@ -2,6 +2,7 @@ import "dotenv/config";
 import { Worker } from "bullmq";
 
 import { ingestPdf } from "./ingest.js";
+import { connection } from "./config/redis.js";
 
 const worker = new Worker(
   "ProcessPdfQueue",
@@ -19,7 +20,7 @@ const worker = new Worker(
       throw e;
     }
   },
-  { concurrency: 100, connection: { host: "localhost", port: 6379 } },
+  { concurrency: 100, connection },
 );
 
 worker.on("failed", (job, err) => {
