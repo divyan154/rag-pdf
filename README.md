@@ -1,4 +1,4 @@
-# Chat with Pdf Application
+# Documind AI
 
 Chat with your own PDFs. Each user only searches their own documents.
 
